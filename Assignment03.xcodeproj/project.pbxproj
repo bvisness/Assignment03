@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		79EE62521BBDDFAE0064EC28 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62511BBDDFAE0064EC28 /* main.cpp */; };
+		79EE62701BBDDFD80064EC28 /* Boat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62591BBDDFD80064EC28 /* Boat.cpp */; };
+		79EE62711BBDDFD80064EC28 /* Empty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE625B1BBDDFD80064EC28 /* Empty.cpp */; };
+		79EE62721BBDDFD80064EC28 /* FanBlade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE625D1BBDDFD80064EC28 /* FanBlade.cpp */; };
+		79EE62731BBDDFD80064EC28 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62601BBDDFD80064EC28 /* GameObject.cpp */; };
+		79EE62741BBDDFD80064EC28 /* GLMiddleman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62621BBDDFD80064EC28 /* GLMiddleman.cpp */; };
+		79EE62751BBDDFD80064EC28 /* InitShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62641BBDDFD80064EC28 /* InitShader.cpp */; };
+		79EE62771BBDDFD80064EC28 /* Rudder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62671BBDDFD80064EC28 /* Rudder.cpp */; };
+		79EE62781BBDDFD80064EC28 /* VisnessUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE626B1BBDDFD80064EC28 /* VisnessUtil.cpp */; };
+		79EE62791BBDDFD80064EC28 /* Water.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE626E1BBDDFD80064EC28 /* Water.cpp */; };
+		79EE627F1BBDE03F0064EC28 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79EE627E1BBDE03F0064EC28 /* OpenGL.framework */; };
+		79EE62811BBDE0430064EC28 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79EE62801BBDE0430064EC28 /* GLUT.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +36,31 @@
 /* Begin PBXFileReference section */
 		79EE624E1BBDDFAE0064EC28 /* Assignment03 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Assignment03; sourceTree = BUILT_PRODUCTS_DIR; };
 		79EE62511BBDDFAE0064EC28 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		79EE62581BBDDFD80064EC28 /* Angel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Angel.h; sourceTree = "<group>"; };
+		79EE62591BBDDFD80064EC28 /* Boat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boat.cpp; sourceTree = "<group>"; };
+		79EE625A1BBDDFD80064EC28 /* Boat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boat.h; sourceTree = "<group>"; };
+		79EE625B1BBDDFD80064EC28 /* Empty.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Empty.cpp; sourceTree = "<group>"; };
+		79EE625C1BBDDFD80064EC28 /* Empty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Empty.h; sourceTree = "<group>"; };
+		79EE625D1BBDDFD80064EC28 /* FanBlade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FanBlade.cpp; sourceTree = "<group>"; };
+		79EE625E1BBDDFD80064EC28 /* FanBlade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanBlade.h; sourceTree = "<group>"; };
+		79EE625F1BBDDFD80064EC28 /* fshader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fshader.glsl; sourceTree = "<group>"; };
+		79EE62601BBDDFD80064EC28 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
+		79EE62611BBDDFD80064EC28 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
+		79EE62621BBDDFD80064EC28 /* GLMiddleman.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLMiddleman.cpp; sourceTree = "<group>"; };
+		79EE62631BBDDFD80064EC28 /* GLMiddleman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMiddleman.h; sourceTree = "<group>"; };
+		79EE62641BBDDFD80064EC28 /* InitShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InitShader.cpp; sourceTree = "<group>"; };
+		79EE62661BBDDFD80064EC28 /* mat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mat.h; sourceTree = "<group>"; };
+		79EE62671BBDDFD80064EC28 /* Rudder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rudder.cpp; sourceTree = "<group>"; };
+		79EE62681BBDDFD80064EC28 /* Rudder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rudder.h; sourceTree = "<group>"; };
+		79EE62691BBDDFD80064EC28 /* vec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vec.h; sourceTree = "<group>"; };
+		79EE626A1BBDDFD80064EC28 /* VisnessGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisnessGL.h; sourceTree = "<group>"; };
+		79EE626B1BBDDFD80064EC28 /* VisnessUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VisnessUtil.cpp; sourceTree = "<group>"; };
+		79EE626C1BBDDFD80064EC28 /* VisnessUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisnessUtil.h; sourceTree = "<group>"; };
+		79EE626D1BBDDFD80064EC28 /* vshader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vshader.glsl; sourceTree = "<group>"; };
+		79EE626E1BBDDFD80064EC28 /* Water.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Water.cpp; sourceTree = "<group>"; };
+		79EE626F1BBDDFD80064EC28 /* Water.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Water.h; sourceTree = "<group>"; };
+		79EE627E1BBDE03F0064EC28 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		79EE62801BBDE0430064EC28 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79EE62811BBDE0430064EC28 /* GLUT.framework in Frameworks */,
+				79EE627F1BBDE03F0064EC28 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +79,8 @@
 		79EE62451BBDDFAE0064EC28 = {
 			isa = PBXGroup;
 			children = (
+				79EE62801BBDE0430064EC28 /* GLUT.framework */,
+				79EE627E1BBDE03F0064EC28 /* OpenGL.framework */,
 				79EE62501BBDDFAE0064EC28 /* Assignment03 */,
 				79EE624F1BBDDFAE0064EC28 /* Products */,
 			);
@@ -57,9 +97,64 @@
 		79EE62501BBDDFAE0064EC28 /* Assignment03 */ = {
 			isa = PBXGroup;
 			children = (
+				79EE627C1BBDE0180064EC28 /* Angel */,
+				79EE62601BBDDFD80064EC28 /* GameObject.cpp */,
+				79EE62611BBDDFD80064EC28 /* GameObject.h */,
+				79EE627A1BBDDFED0064EC28 /* GameObjects */,
+				79EE62621BBDDFD80064EC28 /* GLMiddleman.cpp */,
+				79EE62631BBDDFD80064EC28 /* GLMiddleman.h */,
+				79EE62641BBDDFD80064EC28 /* InitShader.cpp */,
 				79EE62511BBDDFAE0064EC28 /* main.cpp */,
+				79EE627B1BBDDFFC0064EC28 /* shaders */,
+				79EE627D1BBDE0200064EC28 /* Visness */,
 			);
 			path = Assignment03;
+			sourceTree = "<group>";
+		};
+		79EE627A1BBDDFED0064EC28 /* GameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				79EE62591BBDDFD80064EC28 /* Boat.cpp */,
+				79EE625A1BBDDFD80064EC28 /* Boat.h */,
+				79EE625B1BBDDFD80064EC28 /* Empty.cpp */,
+				79EE625C1BBDDFD80064EC28 /* Empty.h */,
+				79EE625D1BBDDFD80064EC28 /* FanBlade.cpp */,
+				79EE625E1BBDDFD80064EC28 /* FanBlade.h */,
+				79EE62671BBDDFD80064EC28 /* Rudder.cpp */,
+				79EE62681BBDDFD80064EC28 /* Rudder.h */,
+				79EE626E1BBDDFD80064EC28 /* Water.cpp */,
+				79EE626F1BBDDFD80064EC28 /* Water.h */,
+			);
+			name = GameObjects;
+			sourceTree = "<group>";
+		};
+		79EE627B1BBDDFFC0064EC28 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				79EE625F1BBDDFD80064EC28 /* fshader.glsl */,
+				79EE626D1BBDDFD80064EC28 /* vshader.glsl */,
+			);
+			name = shaders;
+			sourceTree = "<group>";
+		};
+		79EE627C1BBDE0180064EC28 /* Angel */ = {
+			isa = PBXGroup;
+			children = (
+				79EE62581BBDDFD80064EC28 /* Angel.h */,
+				79EE62661BBDDFD80064EC28 /* mat.h */,
+				79EE62691BBDDFD80064EC28 /* vec.h */,
+			);
+			name = Angel;
+			sourceTree = "<group>";
+		};
+		79EE627D1BBDE0200064EC28 /* Visness */ = {
+			isa = PBXGroup;
+			children = (
+				79EE626A1BBDDFD80064EC28 /* VisnessGL.h */,
+				79EE626B1BBDDFD80064EC28 /* VisnessUtil.cpp */,
+				79EE626C1BBDDFD80064EC28 /* VisnessUtil.h */,
+			);
+			name = Visness;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +213,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79EE62771BBDDFD80064EC28 /* Rudder.cpp in Sources */,
+				79EE62751BBDDFD80064EC28 /* InitShader.cpp in Sources */,
+				79EE62711BBDDFD80064EC28 /* Empty.cpp in Sources */,
 				79EE62521BBDDFAE0064EC28 /* main.cpp in Sources */,
+				79EE62791BBDDFD80064EC28 /* Water.cpp in Sources */,
+				79EE62721BBDDFD80064EC28 /* FanBlade.cpp in Sources */,
+				79EE62781BBDDFD80064EC28 /* VisnessUtil.cpp in Sources */,
+				79EE62701BBDDFD80064EC28 /* Boat.cpp in Sources */,
+				79EE62741BBDDFD80064EC28 /* GLMiddleman.cpp in Sources */,
+				79EE62731BBDDFD80064EC28 /* GameObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
