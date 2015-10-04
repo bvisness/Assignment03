@@ -64,7 +64,7 @@ Vector3 GameObject::getWorldPosition() {
         return position;
     }
     
-    Vector4 pos = getModelViewMatrix() * Vector4(0, 0, 0, 1);
+    Vector4 pos = getModelViewMatrix(false) * Vector4(0, 0, 0, 1);
     return Vector3(pos.x, pos.y, pos.z);
 }
 
@@ -89,16 +89,29 @@ GLfloat GameObject::getWorldScale() {
     return parent->getWorldScale() * scale;
 }
 
-mat4 GameObject::getModelViewMatrix() {
+mat4 GameObject::getModelViewMatrix(bool forCamera) {
     mat4 mvMatrix;
     if (parent == nullptr) {
-        Camera* camera = scene->getActiveCamera();
-        if (camera == nullptr) {
-            abortWithMessage("In GameObject::getModelViewMatrix(): Active camera for scene was nullptr");
+        // We are the top level in the hierarchy, so we
+        // must choose a starting matrix.
+        
+        if (forCamera) {
+            // We will use the scene camera's LookAt matrix
+            // as a starting point.
+            Camera* camera = scene->getActiveCamera();
+            if (camera == nullptr) {
+                abortWithMessage("In GameObject::getModelViewMatrix(): Active camera for scene was nullptr");
+            }
+            mvMatrix = camera->getModelViewMatrix();
+        } else {
+            // If we don't want to start with the camera's matrix,
+            // we'll start with the identity matrix instead.
+            mvMatrix = Matrix4();
         }
-        mvMatrix = camera->getModelViewMatrix();
     } else {
-        mvMatrix = parent->getModelViewMatrix();
+        // We will start with our parent's matrix and apply
+        // the relative transforms from there.
+        mvMatrix = parent->getModelViewMatrix(forCamera);
     }
     
     mvMatrix *= Translate(position.x, position.y, position.z);

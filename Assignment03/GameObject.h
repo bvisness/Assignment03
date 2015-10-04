@@ -49,7 +49,7 @@ public:
     Vector3 getWorldPosition();
     Vector3 getWorldRotation();
     GLfloat getWorldScale();
-    mat4 getModelViewMatrix();
+    mat4 getModelViewMatrix(bool forCamera = true);
     void draw();
 };
 

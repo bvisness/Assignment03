@@ -16,7 +16,9 @@ class Camera: public Empty {
 protected:
     GameObject* lookAtTarget = nullptr;
 public:
+    Camera();
     void setTarget(GameObject* target);
+    void removeTarget();
     Matrix4 getModelViewMatrix();
 };
 
