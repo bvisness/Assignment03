@@ -13,15 +13,17 @@
 #include "GLMiddleman.h"
 
 class Rudder: public GameObject {
+private:
+    void initRudder();
+    Vector4 rudderColor;
 protected:
     int getNumberOfVertices();
     Vector4* getVertices();
     Vector4* getVertexColors();
 public:
-    Rudder(GLMiddleman* newMiddleman) : GameObject(newMiddleman) {
-        middleman = newMiddleman;
+    Rudder(Vector4 color) : GameObject() {
+        rudderColor = color;
     }
-    void initGameObject(Vector4 color);
 };
 
 #endif /* defined(__Assignment02__Rudder__) */

@@ -19,6 +19,8 @@
 		79EE62791BBDDFD80064EC28 /* Water.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE626E1BBDDFD80064EC28 /* Water.cpp */; };
 		79EE627F1BBDE03F0064EC28 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79EE627E1BBDE03F0064EC28 /* OpenGL.framework */; };
 		79EE62811BBDE0430064EC28 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79EE62801BBDE0430064EC28 /* GLUT.framework */; };
+		79EE62841BBDE1290064EC28 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62821BBDE1290064EC28 /* Scene.cpp */; };
+		79EE62871BBDE2D30064EC28 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62851BBDE2D30064EC28 /* Camera.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +63,10 @@
 		79EE626F1BBDDFD80064EC28 /* Water.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Water.h; sourceTree = "<group>"; };
 		79EE627E1BBDE03F0064EC28 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		79EE62801BBDE0430064EC28 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		79EE62821BBDE1290064EC28 /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
+		79EE62831BBDE1290064EC28 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		79EE62851BBDE2D30064EC28 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		79EE62861BBDE2D30064EC28 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				79EE627C1BBDE0180064EC28 /* Angel */,
+				79EE62851BBDE2D30064EC28 /* Camera.cpp */,
+				79EE62861BBDE2D30064EC28 /* Camera.h */,
 				79EE62601BBDDFD80064EC28 /* GameObject.cpp */,
 				79EE62611BBDDFD80064EC28 /* GameObject.h */,
 				79EE627A1BBDDFED0064EC28 /* GameObjects */,
@@ -105,6 +113,8 @@
 				79EE62631BBDDFD80064EC28 /* GLMiddleman.h */,
 				79EE62641BBDDFD80064EC28 /* InitShader.cpp */,
 				79EE62511BBDDFAE0064EC28 /* main.cpp */,
+				79EE62821BBDE1290064EC28 /* Scene.cpp */,
+				79EE62831BBDE1290064EC28 /* Scene.h */,
 				79EE627B1BBDDFFC0064EC28 /* shaders */,
 				79EE627D1BBDE0200064EC28 /* Visness */,
 			);
@@ -217,8 +227,10 @@
 				79EE62751BBDDFD80064EC28 /* InitShader.cpp in Sources */,
 				79EE62711BBDDFD80064EC28 /* Empty.cpp in Sources */,
 				79EE62521BBDDFAE0064EC28 /* main.cpp in Sources */,
+				79EE62871BBDE2D30064EC28 /* Camera.cpp in Sources */,
 				79EE62791BBDDFD80064EC28 /* Water.cpp in Sources */,
 				79EE62721BBDDFD80064EC28 /* FanBlade.cpp in Sources */,
+				79EE62841BBDE1290064EC28 /* Scene.cpp in Sources */,
 				79EE62781BBDDFD80064EC28 /* VisnessUtil.cpp in Sources */,
 				79EE62701BBDDFD80064EC28 /* Boat.cpp in Sources */,
 				79EE62741BBDDFD80064EC28 /* GLMiddleman.cpp in Sources */,
@@ -339,6 +351,7 @@
 				79EE62571BBDDFAE0064EC28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

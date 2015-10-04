@@ -1,0 +1,48 @@
+//
+//  Scene.cpp
+//  Assignment03
+//
+//  Created by Benjamin Visness on 10/1/15.
+//  Copyright (c) 2015 Benjamin Visness. All rights reserved.
+//
+
+#include "Scene.h"
+
+Scene::Scene(GLMiddleman* newMiddleman) {
+    middleman = newMiddleman;
+}
+
+void Scene::addGameObject(GameObject* obj) {
+    obj->setScene(this);
+    gameObjects.push_back(obj);
+}
+
+void Scene::init() {
+    if (initialized) {
+        return;
+    }
+    
+    std::vector<GameObject*>::iterator it = gameObjects.begin();
+    while (it != gameObjects.end()) {
+        (*it)->initGameObject();
+        it++;
+    }
+    
+    initialized = true;
+}
+
+void Scene::draw() {
+    std::vector<GameObject*>::iterator it = gameObjects.begin();
+    while (it != gameObjects.end()) {
+        (*it)->draw();
+        it++;
+    }
+}
+
+Camera* Scene::getActiveCamera() {
+    return activeCamera;
+}
+
+void Scene::setActiveCamera(Camera* cam) {
+    activeCamera = cam;
+}

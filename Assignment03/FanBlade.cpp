@@ -14,17 +14,10 @@ const GLfloat bladeWidth = 0.35;
 
 const int numVertsBlade = 6;
 
-Vector4 bladeColor;
-
 Vector4 bladeVerts[numVertsBlade];
 Vector4 bladeColors[numVertsBlade];
 
-void FanBlade::initGameObject(Vector4 color) {
-    bladeColor = color;
-    GameObject::initGameObject();
-}
-
-void initBlade() {
+void FanBlade::initBlade() {
     for(int i=0; i<6; i++){
         bladeColors[i] = bladeColor;
     }

@@ -7,6 +7,7 @@
 //
 
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "VisnessUtil.h"
 
@@ -23,4 +24,25 @@ GLfloat clamp(GLfloat n, GLfloat min, GLfloat max) {
     }
     
     return n;
+}
+
+void warnWithMessage(const char* msg) {
+    printf("WARNING: %s\n", msg);
+}
+
+void abortWithMessage(const char* msg) {
+    printf("ERROR: %s\n", msg);
+    abort();
+}
+
+bool operator==(const Vector2& lhs, const Vector2& rhs) {
+    return (lhs.x == rhs.x) && (lhs.y == rhs.y);
+}
+
+bool operator==(const Vector3& lhs, const Vector3& rhs) {
+    return (lhs.x == rhs.x) && (lhs.y == rhs.y) && (lhs.z == rhs.z);
+}
+
+bool operator==(const Vector4& lhs, const Vector4& rhs) {
+    return (lhs.x == rhs.x) && (lhs.y == rhs.y) && (lhs.z == rhs.z) && (lhs.w == rhs.w);
 }

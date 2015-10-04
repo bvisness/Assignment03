@@ -17,10 +17,6 @@ protected:
     int getNumberOfVertices();
     Vector4* getVertices();
     Vector4* getVertexColors();
-public:
-    Boat(GLMiddleman* newMiddleman) : GameObject(newMiddleman) {
-        middleman = newMiddleman;
-    }
 };
 
 #endif /* defined(__Assignment02__Boat__) */

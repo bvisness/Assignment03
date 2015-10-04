@@ -20,16 +20,26 @@
 #define RAD_TO_DEG 57.2957795
 #endif
 
+typedef mat2 Matrix2;
 typedef vec2 Vector2;
 typedef vec2 Point2;
 
+typedef mat3 Matrix3;
 typedef vec3 Vector3;
 typedef vec3 Point3;
 
+typedef mat4 Matrix4;
 typedef vec4 Vector4;
+
+bool operator==(const Vector2& lhs, const Vector2& rhs);
+bool operator==(const Vector3& lhs, const Vector3& rhs);
+bool operator==(const Vector4& lhs, const Vector4& rhs);
 
 GLfloat randRange(GLfloat min, GLfloat max);
 
 GLfloat clamp(GLfloat n, GLfloat min, GLfloat max);
+
+void warnWithMessage(const char* msg);
+void abortWithMessage(const char* msg);
 
 #endif

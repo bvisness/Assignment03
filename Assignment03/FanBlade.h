@@ -10,18 +10,19 @@
 #define __Assignment02__FanBlade__
 
 #include "GameObject.h"
-#include "GLMiddleman.h"
 
 class FanBlade: public GameObject {
+private:
+    void initBlade();
+    Vector4 bladeColor;
 protected:
     int getNumberOfVertices();
     Vector4* getVertices();
     Vector4* getVertexColors();
 public:
-    FanBlade(GLMiddleman* newMiddleman) : GameObject(newMiddleman) {
-        middleman = newMiddleman;
+    FanBlade(Vector4 color) : GameObject() {
+        bladeColor = color;
     }
-    void initGameObject(Vector4 color);
 };
 
 #endif /* defined(__Assignment02__FanBlade__) */

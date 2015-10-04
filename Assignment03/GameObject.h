@@ -16,33 +16,39 @@
 #include "Angel.h"
 #include "GLMiddleman.h"
 
+class Scene;
+
 class GameObject {
+friend class Scene;
 protected:
     bool initialized = false;
-    GLMiddleman* middleman;
+    Scene* scene = nullptr;
+    void initGameObject();
     
     GLuint vao;
     GLuint vbo[2];
-    GameObject* parent;
-    std::vector<GameObject*> children;
+    GameObject* parent = nullptr;
+    std::vector<GameObject*> children = std::vector<GameObject*>();
     
     virtual int getNumberOfVertices() = 0;
     virtual Vector4* getVertices() = 0;
     virtual Vector4* getVertexColors() = 0;
 public:
-    GameObject(GLMiddleman* middleman);
-    void initGameObject();
+    void setScene(Scene* newScene);
     
     GLuint getVAO();
     
-    Vector3 position;
-    Vector3 rotation;
-    GLfloat scale;
+    Vector3 position = Vector3();
+    Vector3 rotation = Vector3();
+    GLfloat scale = 1;
     
     GameObject* getParent();
     std::vector<GameObject*> getChildren();
     void addChild(GameObject* obj);
     
+    Vector3 getWorldPosition();
+    Vector3 getWorldRotation();
+    GLfloat getWorldScale();
     mat4 getModelViewMatrix();
     void draw();
 };

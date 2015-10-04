@@ -13,17 +13,10 @@ const GLfloat rudderDepth = 0.5;
 
 const int numVertsRudder = 6;
 
-Vector4 rudderColor;
-
 Vector4 rudderVerts[numVertsRudder];
 Vector4 rudderColors[numVertsRudder];
 
-void Rudder::initGameObject(Vector4 color) {
-    rudderColor = color;
-    GameObject::initGameObject();
-}
-
-void initRudder() {
+void Rudder::initRudder() {
     for(int i=0; i<6; i++){
         rudderColors[i] = rudderColor; //bottom
     }

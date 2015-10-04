@@ -14,6 +14,8 @@
 #include "Rudder.h"
 #include "Water.h"
 #include "Empty.h"
+#include "Scene.h"
+#include "Camera.h"
 #include "GLMiddleman.h"
 #include <math.h>
 #pragma comment(lib, "glew32.lib")
@@ -42,11 +44,15 @@ const Vector4 rudderColors[3] = {
     Vector4(0.8, 0.8, 1.0, 1.0)
 };
 
+Scene* scene;
+
 Boat* boat;
 Empty* fanAnchor;
 FanBlade* blades[numBlades];
 Rudder* rudders[numRudders];
 Water* water;
+
+Camera* lookCam;
 
 const GLfloat waterScale = 10;
 const GLfloat boatSpeed = 0.1;
@@ -75,8 +81,7 @@ void display(void)
 #endif
 	}
 
-    boat->draw();
-    water->draw();
+    scene->draw();
 
     glutSwapBuffers();
 }
@@ -113,18 +118,15 @@ void specialUp(int key, int x, int y) {
 }
 
 void createObjects(GLMiddleman* middleman) {
-    boat = new Boat(middleman);
-    boat->initGameObject();
+    boat = new Boat();
     
-    fanAnchor = new Empty(middleman);
-    fanAnchor->initGameObject();
+    fanAnchor = new Empty();
     fanAnchor->position.y = 1;
     fanAnchor->position.z = -1.25;
     boat->addChild(fanAnchor);
     
     for (int i = 0; i < numBlades; i++) {
-        blades[i] = new FanBlade(middleman);
-        blades[i]->initGameObject(bladeColors[i]);
+        blades[i] = new FanBlade(bladeColors[i]);
         
         blades[i]->rotation.x = 30;
         blades[i]->rotation.z = (360.0 / numBlades) * i;
@@ -133,8 +135,7 @@ void createObjects(GLMiddleman* middleman) {
     }
     
     for (int i = 0; i < numRudders; i++) {
-        rudders[i] = new Rudder(middleman);
-        rudders[i]->initGameObject(rudderColors[i]);
+        rudders[i] = new Rudder(rudderColors[i]);
         
         rudders[i]->position.x = -rudderSpacing + (rudderSpacing * i);
         rudders[i]->position.z = -1.5;
@@ -142,9 +143,18 @@ void createObjects(GLMiddleman* middleman) {
         boat->addChild(rudders[i]);
     }
     
-    water = new Water(middleman);
-    water->initGameObject();
+    water = new Water();
     water->scale = 10;
+    
+    lookCam = new Camera();
+    lookCam->position = Vector3(0, 10, 20);
+    lookCam->setTarget(boat);
+    
+    scene = new Scene(middleman);
+    scene->addGameObject(boat);
+    scene->addGameObject(water);
+    scene->setActiveCamera(lookCam);
+    scene->init();
 }
 
 void init() {
