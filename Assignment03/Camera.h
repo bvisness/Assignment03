@@ -13,13 +13,24 @@
 #include "Empty.h"
 
 class Camera: public Empty {
+private:
+    void updateSceneProjectionMatrixIfSafe();
 protected:
     GameObject* lookAtTarget = nullptr;
+    GLfloat fov = 45;
+    GLfloat near = 1;
+    GLfloat far = 100;
 public:
     Camera();
     void setTarget(GameObject* target);
     void removeTarget();
     Matrix4 getModelViewMatrix();
+    Matrix4 getProjectionMatrix();
+    
+    GLfloat getFOV();
+    void setFOV(GLfloat newFOV);
+    void setNearClippingDistance(GLfloat newNear);
+    void setFarClippingDistance(GLfloat newFar);
 };
 
 #endif /* defined(__Assignment03__Camera__) */

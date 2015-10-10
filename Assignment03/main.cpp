@@ -16,7 +16,6 @@
 #include "Empty.h"
 #include "Scene.h"
 #include "Camera.h"
-#include "GLMiddleman.h"
 #include <math.h>
 #pragma comment(lib, "glew32.lib")
 
@@ -53,6 +52,7 @@ Rudder* rudders[numRudders];
 Water* water;
 
 Camera* lookCam;
+Camera* chaseCam;
 
 const GLfloat waterScale = 10;
 const GLfloat boatSpeed = 0.1;
@@ -64,8 +64,6 @@ bool keyUpArrow;
 bool keyDownArrow;
 bool keyLeftArrow;
 bool keyRightArrow;
-
-GLMiddleman* middleman;
 
 void display(void)
 {
@@ -90,6 +88,10 @@ void keyboard(unsigned char key, int x, int y) {
 	/*exit when the escape key is pressed*/
     if (key == 27) {
 		exit(0);
+    } else if (key == 'r') {
+        lookCam->setFOV(lookCam->getFOV() - 3);
+    } else if (key == 'f') {
+        lookCam->setFOV(lookCam->getFOV() + 3);
     }
 }
 
@@ -117,7 +119,7 @@ void specialUp(int key, int x, int y) {
     }
 }
 
-void createObjects(GLMiddleman* middleman) {
+void createObjects() {
     boat = new Boat();
     
     fanAnchor = new Empty();
@@ -150,9 +152,16 @@ void createObjects(GLMiddleman* middleman) {
     lookCam->position = Vector3(0, 10, 20);
     lookCam->setTarget(boat);
     
-    scene = new Scene(middleman);
+    chaseCam = new Camera();
+    chaseCam->position = Vector3(0, 5, -5);
+    chaseCam->rotation = Vector3(30, 0, 0);
+    
+    boat->addChild(chaseCam);
+    
+    scene = new Scene();
     scene->addGameObject(boat);
     scene->addGameObject(water);
+    scene->addGameObject(lookCam);
     scene->setActiveCamera(lookCam);
     scene->init();
 }
@@ -161,9 +170,7 @@ void init() {
     /*select clearing (background) color*/
     glClearColor(0.0, 0.0, 0.0, 0.0);
     
-    middleman = new GLMiddleman();
-    
-    createObjects(middleman);
+    createObjects();
     
     //Only draw the things in the front layer
 	glEnable(GL_DEPTH_TEST);
@@ -175,12 +182,11 @@ void reshape(int width, int height){
 	ww= width;
 	wh = height;
 	//field of view angle, aspect ratio, closest distance from camera to object, largest distance from camera to object
-	p = Perspective(45.0, (float)width/(float)height, 1.0, 100.0);
-	
+    
     //send over projection matrix to vertex shader
-    middleman->updateProjectionMatrix(p);
-
-	glViewport( 0, 0, width, height );
+    scene->setAspectRatio((float)width, (float)height);
+	
+	glViewport(0, 0, width, height);
 }
 
 void timer(GLint v) {

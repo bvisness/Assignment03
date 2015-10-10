@@ -21,6 +21,7 @@ protected:
     bool initialized = false;
 public:
     GLMiddleman* middleman = nullptr;
+    Scene();
     Scene(GLMiddleman* newMiddleman);
     
     void addGameObject(GameObject* obj);
@@ -29,6 +30,12 @@ public:
     
     Camera* getActiveCamera();
     void setActiveCamera(Camera* cam);
+    
+    GLfloat aspect = 1;
+    void setAspectRatio(GLfloat aspect);
+    void setAspectRatio(GLfloat width, GLfloat height);
+    
+    void updateProjectionMatrix();
 };
 
 #endif /* defined(__Assignment03__Scene__) */

@@ -7,8 +7,15 @@
 //
 
 #include "Camera.h"
+#include "Scene.h"
 
 GameObject* defaultTarget;
+
+void Camera::updateSceneProjectionMatrixIfSafe() {
+    if (scene != nullptr) {
+        scene->updateProjectionMatrix();
+    }
+}
 
 Camera::Camera() {
     defaultTarget = new Empty();
@@ -37,5 +44,28 @@ Matrix4 Camera::getModelViewMatrix() {
     Vector4 up = RotateX(rotation.x) * Vector3(0, 1, 0);
     up = RotateY(rotation.y) * up;
     
-    return LookAt(position, targetToUse->getWorldPosition(), up);
+    return LookAt(getWorldPosition(), targetToUse->getWorldPosition(), up);
+}
+
+Matrix4 Camera::getProjectionMatrix() {
+    return Perspective(fov, scene->aspect, near, far);
+}
+
+GLfloat Camera::getFOV() {
+    return fov;
+}
+
+void Camera::setFOV(GLfloat newFOV) {
+    fov = clamp(newFOV, 1, 90);
+    updateSceneProjectionMatrixIfSafe();
+}
+
+void Camera::setNearClippingDistance(GLfloat newNear) {
+    near = newNear;
+    updateSceneProjectionMatrixIfSafe();
+}
+
+void Camera::setFarClippingDistance(GLfloat newFar) {
+    far = newFar;
+    updateSceneProjectionMatrixIfSafe();
 }

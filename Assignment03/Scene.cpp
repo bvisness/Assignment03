@@ -8,6 +8,10 @@
 
 #include "Scene.h"
 
+Scene::Scene() {
+    middleman = new GLMiddleman();
+}
+
 Scene::Scene(GLMiddleman* newMiddleman) {
     middleman = newMiddleman;
 }
@@ -45,4 +49,22 @@ Camera* Scene::getActiveCamera() {
 
 void Scene::setActiveCamera(Camera* cam) {
     activeCamera = cam;
+    updateProjectionMatrix();
+}
+
+void Scene::setAspectRatio(GLfloat newAspect) {
+    aspect = newAspect;
+    updateProjectionMatrix();
+}
+
+void Scene::setAspectRatio(GLfloat width, GLfloat height) {
+    aspect = width / height;
+    updateProjectionMatrix();
+}
+
+void Scene::updateProjectionMatrix() {
+    if (activeCamera == nullptr) {
+        abortWithMessage("In Scene::updateProjectionMatrix(): Scene has no active camera");
+    }
+    middleman->updateProjectionMatrix(activeCamera->getProjectionMatrix());
 }
