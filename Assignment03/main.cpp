@@ -51,7 +51,7 @@ FanBlade* blades[numBlades];
 Rudder* rudders[numRudders];
 Water* water;
 
-Camera* lookCam;
+Camera* freeCam;
 Camera* chaseCam;
 
 const GLfloat waterScale = 10;
@@ -60,10 +60,20 @@ const GLfloat boatRotateSpeed = 2;
 const GLfloat fanSpeed = 10;
 const GLfloat rudderAngle = 35;
 
-bool keyUpArrow;
-bool keyDownArrow;
-bool keyLeftArrow;
-bool keyRightArrow;
+bool keyUpArrow = false;
+bool keyDownArrow = false;
+bool keyLeftArrow = false;
+bool keyRightArrow = false;
+bool keyZoomIn = false;
+bool keyZoomOut = false;
+bool keySwitchLookTarget = false;
+bool keyResetCamera = false;
+
+void resetFreeCamera() {
+    freeCam->setFOV(45);
+    freeCam->position = Vector3(0, 10, 20);
+    freeCam->setTarget(water);
+}
 
 void display(void)
 {
@@ -88,10 +98,44 @@ void keyboard(unsigned char key, int x, int y) {
 	/*exit when the escape key is pressed*/
     if (key == 27) {
 		exit(0);
-    } else if (key == 'r') {
-        lookCam->setFOV(lookCam->getFOV() - 3);
+    }
+    
+    if (key == 'c') {
+        if (scene->getActiveCamera() == freeCam) {
+            scene->setActiveCamera(chaseCam);
+        } else {
+            scene->setActiveCamera(freeCam);
+        }
+    }
+    
+    if (scene->getActiveCamera() == freeCam) {
+        if (key == 'x') {
+            keyZoomIn = true;
+        } else if (key == 'z') {
+            keyZoomOut = true;
+        } else if (key == 'f' && !keySwitchLookTarget) {
+            keySwitchLookTarget = true;
+            if (freeCam->getTarget() == boat) {
+                freeCam->setTarget(water);
+            } else {
+                freeCam->setTarget(boat);
+            }
+        } else if (key == 'r' && !keyResetCamera) {
+            keyResetCamera = true;
+            resetFreeCamera();
+        }
+    }
+}
+
+void keyboardUp(unsigned char key, int x, int y) {
+    if (key == 'x') {
+        keyZoomIn = false;
+    } else if (key == 'z') {
+        keyZoomOut = false;
     } else if (key == 'f') {
-        lookCam->setFOV(lookCam->getFOV() + 3);
+        keySwitchLookTarget = false;
+    } else  if (key == 'r') {
+        keyResetCamera = false;
     }
 }
 
@@ -148,9 +192,8 @@ void createObjects() {
     water = new Water();
     water->scale = 10;
     
-    lookCam = new Camera();
-    lookCam->position = Vector3(0, 10, 20);
-    lookCam->setTarget(boat);
+    freeCam = new Camera();
+    resetFreeCamera();
     
     chaseCam = new Camera();
     chaseCam->position = Vector3(0, 5, -5);
@@ -161,8 +204,8 @@ void createObjects() {
     scene = new Scene();
     scene->addGameObject(boat);
     scene->addGameObject(water);
-    scene->addGameObject(lookCam);
-    scene->setActiveCamera(lookCam);
+    scene->addGameObject(freeCam);
+    scene->setActiveCamera(freeCam);
     scene->init();
 }
 
@@ -219,6 +262,12 @@ void timer(GLint v) {
         }
     }
     
+    if (keyZoomIn) {
+        freeCam->setFOV(freeCam->getFOV() - 1);
+    } else if (keyZoomOut) {
+        freeCam->setFOV(freeCam->getFOV() + 1);
+    }
+    
 	glutPostRedisplay();
 	glutTimerFunc(1000 / v, timer, v);
 }
@@ -245,7 +294,7 @@ int main(int argc, char **argv)
 
     glutDisplayFunc(display);
     glutKeyboardFunc(keyboard);
-//    glutKeyboardUpFunc(keyboardUp);
+    glutKeyboardUpFunc(keyboardUp);
     glutSpecialFunc(special);
     glutSpecialUpFunc(specialUp);
     glutReshapeFunc(reshape);

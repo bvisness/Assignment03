@@ -22,6 +22,7 @@ protected:
     GLfloat far = 100;
 public:
     Camera();
+    GameObject* getTarget();
     void setTarget(GameObject* target);
     void removeTarget();
     Matrix4 getModelViewMatrix();

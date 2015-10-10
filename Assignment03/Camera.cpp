@@ -23,6 +23,10 @@ Camera::Camera() {
     addChild(defaultTarget);
 }
 
+GameObject* Camera::getTarget() {
+    return lookAtTarget;
+}
+
 void Camera::setTarget(GameObject* target) {
     lookAtTarget = target;
 }
@@ -41,8 +45,9 @@ Matrix4 Camera::getModelViewMatrix() {
         warnWithMessage("In Camera::getModelViewMatrix(): Camera in same position as lookAtTarget");
     }
     
-    Vector4 up = RotateX(rotation.x) * Vector3(0, 1, 0);
-    up = RotateY(rotation.y) * up;
+    Vector3 worldRot = getWorldRotation();
+    Vector4 up = RotateX(worldRot.x) * Vector3(0, 1, 0);
+    up = RotateY(worldRot.y) * up;
     
     return LookAt(getWorldPosition(), targetToUse->getWorldPosition(), up);
 }
