@@ -16,6 +16,7 @@ class Camera: public Empty {
 private:
     void updateSceneProjectionMatrixIfSafe();
 protected:
+    GameObject* defaultTarget;
     GameObject* lookAtTarget = nullptr;
     GLfloat fov = 45;
     GLfloat near = 1;

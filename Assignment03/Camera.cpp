@@ -9,8 +9,6 @@
 #include "Camera.h"
 #include "Scene.h"
 
-GameObject* defaultTarget;
-
 void Camera::updateSceneProjectionMatrixIfSafe() {
     if (scene != nullptr) {
         scene->updateProjectionMatrix();

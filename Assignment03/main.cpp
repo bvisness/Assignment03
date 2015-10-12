@@ -54,6 +54,7 @@ Water* water;
 
 Camera* freeCam;
 Camera* chaseCam;
+Camera* topCam;
 
 const GLfloat waterScale = 10;
 const GLfloat boatSpeed = 0.1;
@@ -104,6 +105,8 @@ void keyboard(unsigned char key, int x, int y) {
     if (key == 'c') {
         if (scene->getActiveCamera() == freeCam) {
             scene->setActiveCamera(chaseCam);
+        } else if (scene->getActiveCamera() == chaseCam) {
+            scene->setActiveCamera(topCam);
         } else {
             scene->setActiveCamera(freeCam);
         }
@@ -220,7 +223,12 @@ void createObjects() {
     chaseCam->position = Vector3(0, 5, -5);
     chaseCam->rotation = Vector3(30, 0, 0);
     
+    topCam = new Camera();
+    topCam->position = Vector3(0, 15, 0);
+    topCam->rotation.x = 90;
+    
     boat->addChild(chaseCam);
+    boat->addChild(topCam);
     
     scene->addGameObject(boat);
     scene->addGameObject(water);
