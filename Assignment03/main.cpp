@@ -17,6 +17,7 @@
 #include "Scene.h"
 #include "Camera.h"
 #include "Sphere.h"
+#include "Cylinder.h"
 #include <math.h>
 #pragma comment(lib, "glew32.lib")
 
@@ -50,6 +51,7 @@ Boat* boat;
 Empty* fanAnchor;
 FanBlade* blades[numBlades];
 Rudder* rudders[numRudders];
+Cylinder* searchlight;
 Water* water;
 
 Camera* freeCam;
@@ -61,6 +63,7 @@ const GLfloat boatSpeed = 0.1;
 const GLfloat boatRotateSpeed = 2;
 const GLfloat fanSpeed = 10;
 const GLfloat rudderAngle = 35;
+const GLfloat searchlightSpeed = 1;
 
 bool keyUpArrow = false;
 bool keyDownArrow = false;
@@ -70,6 +73,8 @@ bool keyZoomIn = false;
 bool keyZoomOut = false;
 bool keySwitchLookTarget = false;
 bool keyResetCamera = false;
+bool keySearchlightClockwise = false;
+bool keySearchlightCounterclockwise = false;
 
 void resetFreeCamera() {
     freeCam->setFOV(45);
@@ -100,6 +105,12 @@ void keyboard(unsigned char key, int x, int y) {
 	/*exit when the escape key is pressed*/
     if (key == 27) {
 		exit(0);
+    }
+    
+    if (key == 'a') {
+        keySearchlightCounterclockwise = true;
+    } else if (key == 'd') {
+        keySearchlightClockwise = true;
     }
     
     if (key == 'c') {
@@ -140,6 +151,12 @@ void keyboardUp(unsigned char key, int x, int y) {
         keySwitchLookTarget = false;
     } else  if (key == 'r') {
         keyResetCamera = false;
+    }
+    
+    if (key == 'a') {
+        keySearchlightCounterclockwise = false;
+    } else if (key == 'd') {
+        keySearchlightClockwise = false;
     }
 }
 
@@ -193,6 +210,12 @@ void createObjects() {
         
         boat->addChild(rudders[i]);
     }
+    
+    searchlight = new Cylinder(0.25, 0.5, 16, Vector4(0.8, 0.8, 0.8, 1));
+    searchlight->setCapTopColor(Vector4(1, 1, 1, 1));
+    searchlight->rotation.x = 90;
+    searchlight->position = Vector3(0, 1.25, 2);
+    boat->addChild(searchlight);
     
     boat->addChild(fanAnchor);
     
@@ -289,6 +312,14 @@ void timer(GLint v) {
             rudders[i]->rotation.y = 0;
         }
     }
+    
+    if (keySearchlightCounterclockwise) {
+        searchlight->rotation.y += searchlightSpeed;
+    } else if (keySearchlightClockwise) {
+        searchlight->rotation.y -= searchlightSpeed;
+    }
+    
+    searchlight->rotation.y = clamp(searchlight->rotation.y, -55, 55);
     
     if (keyZoomIn) {
         freeCam->setFOV(freeCam->getFOV() - 1);

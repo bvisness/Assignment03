@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7973B8B91BCC4A19008706C2 /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7973B8B71BCC4A19008706C2 /* Sphere.cpp */; };
+		7973B8BD1BCC54E7008706C2 /* Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7973B8BB1BCC54E7008706C2 /* Cylinder.cpp */; };
 		79EE62521BBDDFAE0064EC28 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62511BBDDFAE0064EC28 /* main.cpp */; };
 		79EE62701BBDDFD80064EC28 /* Boat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62591BBDDFD80064EC28 /* Boat.cpp */; };
 		79EE62711BBDDFD80064EC28 /* Empty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE625B1BBDDFD80064EC28 /* Empty.cpp */; };
@@ -39,6 +40,8 @@
 /* Begin PBXFileReference section */
 		7973B8B71BCC4A19008706C2 /* Sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
 		7973B8B81BCC4A19008706C2 /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
+		7973B8BB1BCC54E7008706C2 /* Cylinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cylinder.cpp; sourceTree = "<group>"; };
+		7973B8BC1BCC54E7008706C2 /* Cylinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cylinder.h; sourceTree = "<group>"; };
 		79EE624E1BBDDFAE0064EC28 /* Assignment03 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Assignment03; sourceTree = BUILT_PRODUCTS_DIR; };
 		79EE62511BBDDFAE0064EC28 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		79EE62581BBDDFD80064EC28 /* Angel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Angel.h; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 			children = (
 				7973B8B71BCC4A19008706C2 /* Sphere.cpp */,
 				7973B8B81BCC4A19008706C2 /* Sphere.h */,
+				7973B8BB1BCC54E7008706C2 /* Cylinder.cpp */,
+				7973B8BC1BCC54E7008706C2 /* Cylinder.h */,
 			);
 			name = Primitives;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 				7973B8B91BCC4A19008706C2 /* Sphere.cpp in Sources */,
 				79EE62741BBDDFD80064EC28 /* GLMiddleman.cpp in Sources */,
 				79EE62731BBDDFD80064EC28 /* GameObject.cpp in Sources */,
+				7973B8BD1BCC54E7008706C2 /* Cylinder.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
