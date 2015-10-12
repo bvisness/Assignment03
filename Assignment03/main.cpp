@@ -213,6 +213,7 @@ void createObjects() {
     
     searchlight = new Cylinder(0.25, 0.5, 16, Vector4(0.8, 0.8, 0.8, 1));
     searchlight->setCapTopColor(Vector4(1, 1, 1, 1));
+    searchlight->setCapBottomColor(Vector4(0.6, 0.6, 0.6, 1));
     searchlight->rotation.x = 90;
     searchlight->position = Vector3(0, 1.25, 2);
     boat->addChild(searchlight);

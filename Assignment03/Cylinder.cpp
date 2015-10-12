@@ -98,7 +98,7 @@ void Cylinder::setCapTopColor(Vector4 color) {
 }
 
 void Cylinder::setCapBottomColor(Vector4 color) {
-    for (int i = numVertsCircle; i < (numVertsCircle * 3) * 2; i++) {
+    for (int i = numVertsCircle * 3; i < (numVertsCircle * 3) * 2; i++) {
         cylinderColors[i] = color;
     }
 }
