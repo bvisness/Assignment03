@@ -16,6 +16,7 @@
 #include "Empty.h"
 #include "Scene.h"
 #include "Camera.h"
+#include "Sphere.h"
 #include <math.h>
 #pragma comment(lib, "glew32.lib")
 
@@ -164,6 +165,8 @@ void specialUp(int key, int x, int y) {
 }
 
 void createObjects() {
+    scene = new Scene();
+    
     boat = new Boat();
     
     fanAnchor = new Empty();
@@ -193,6 +196,23 @@ void createObjects() {
     water = new Water();
     water->scale = 10;
     
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (i == 1 && j == 1) {
+                continue;
+            }
+            
+            GLfloat pillarX = (i * 10) - 10;
+            GLfloat pillarZ = (j * 10) - 10;
+            
+            for (int k = 0; k < 10; k++) {
+                Sphere* pillarSphere = new Sphere(0.25, 36, Vector4(i % 2, j % 2, 1, 1));
+                pillarSphere->position = Vector3(pillarX, k * 0.5, pillarZ);
+                scene->addGameObject(pillarSphere);
+            }
+        }
+    }
+    
     freeCam = new Camera();
     resetFreeCamera();
     
@@ -202,7 +222,6 @@ void createObjects() {
     
     boat->addChild(chaseCam);
     
-    scene = new Scene();
     scene->addGameObject(boat);
     scene->addGameObject(water);
     scene->addGameObject(freeCam);
