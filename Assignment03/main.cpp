@@ -64,6 +64,9 @@ const GLfloat boatRotateSpeed = 2;
 const GLfloat fanSpeed = 10;
 const GLfloat rudderAngle = 35;
 const GLfloat searchlightSpeed = 1;
+const GLfloat cameraDollySpeed = 0.2;
+const GLfloat cameraDollyMinDistance = 5;
+const GLfloat cameraDollyMaxDistance = 20;
 
 bool keyUpArrow = false;
 bool keyDownArrow = false;
@@ -71,6 +74,8 @@ bool keyLeftArrow = false;
 bool keyRightArrow = false;
 bool keyZoomIn = false;
 bool keyZoomOut = false;
+bool keyDollyIn = false;
+bool keyDollyOut = false;
 bool keySwitchLookTarget = false;
 bool keyResetCamera = false;
 bool keySearchlightClockwise = false;
@@ -111,9 +116,7 @@ void keyboard(unsigned char key, int x, int y) {
         keySearchlightCounterclockwise = true;
     } else if (key == 'd') {
         keySearchlightClockwise = true;
-    }
-    
-    if (key == 'c') {
+    } else if (key == 'c') {
         if (scene->getActiveCamera() == freeCam) {
             scene->setActiveCamera(chaseCam);
         } else if (scene->getActiveCamera() == chaseCam) {
@@ -128,6 +131,10 @@ void keyboard(unsigned char key, int x, int y) {
             keyZoomIn = true;
         } else if (key == 'z') {
             keyZoomOut = true;
+        } else if (key == 'q') {
+            keyDollyIn = true;
+        } else if (key == 'e') {
+            keyDollyOut = true;
         } else if (key == 'f' && !keySwitchLookTarget) {
             keySwitchLookTarget = true;
             if (freeCam->getTarget() == boat) {
@@ -147,13 +154,15 @@ void keyboardUp(unsigned char key, int x, int y) {
         keyZoomIn = false;
     } else if (key == 'z') {
         keyZoomOut = false;
+    } else if (key == 'q') {
+        keyDollyIn = false;
+    } else if (key == 'e') {
+        keyDollyOut = false;
     } else if (key == 'f') {
         keySwitchLookTarget = false;
     } else  if (key == 'r') {
         keyResetCamera = false;
-    }
-    
-    if (key == 'a') {
+    } else if (key == 'a') {
         keySearchlightCounterclockwise = false;
     } else if (key == 'd') {
         keySearchlightClockwise = false;
@@ -326,6 +335,17 @@ void timer(GLint v) {
         freeCam->setFOV(freeCam->getFOV() - 1);
     } else if (keyZoomOut) {
         freeCam->setFOV(freeCam->getFOV() + 1);
+    }
+    
+    if (keyDollyIn || keyDollyOut) {
+        Vector3 toOrigin = Vector3(0, 0, 0) - freeCam->position;
+        GLfloat distanceToOrigin = length(toOrigin);
+        
+        if (keyDollyIn && distanceToOrigin > cameraDollyMinDistance) {
+            freeCam->position += normalize(toOrigin) * cameraDollySpeed;
+        } else if (keyDollyOut && distanceToOrigin < cameraDollyMaxDistance) {
+            freeCam->position -= normalize(toOrigin) * cameraDollySpeed;
+        }
     }
     
 	glutPostRedisplay();
