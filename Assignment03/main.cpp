@@ -169,12 +169,11 @@ void createObjects() {
     fanAnchor = new Empty();
     fanAnchor->position.y = 1;
     fanAnchor->position.z = -1.25;
-    boat->addChild(fanAnchor);
+//    boat->addChild(fanAnchor);
     
     for (int i = 0; i < numBlades; i++) {
         blades[i] = new FanBlade(bladeColors[i]);
-        
-        blades[i]->rotation.x = 30;
+
         blades[i]->rotation.z = (360.0 / numBlades) * i;
         
         fanAnchor->addChild(blades[i]);
@@ -188,6 +187,8 @@ void createObjects() {
         
         boat->addChild(rudders[i]);
     }
+    
+    boat->addChild(fanAnchor);
     
     water = new Water();
     water->scale = 10;
