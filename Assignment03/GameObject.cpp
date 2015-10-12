@@ -114,11 +114,15 @@ mat4 GameObject::getModelViewMatrix(bool forCamera) {
         mvMatrix = parent->getModelViewMatrix(forCamera);
     }
     
-    mvMatrix *= Translate(position.x, position.y, position.z);
-    mvMatrix *= RotateZ(rotation.z);
-    mvMatrix *= RotateY(rotation.y);
-    mvMatrix *= RotateX(rotation.x);
-    mvMatrix *= Scale(scale, scale, scale);
+    Matrix4 translate_m = Translate(position.x, position.y, position.z);
+    mvMatrix *= translate_m;
+    
+    mvMatrix *= RotateY(rotation.y); // yaw
+    mvMatrix *= RotateX(rotation.x); // pitch
+    mvMatrix *= RotateZ(rotation.z); // roll
+    
+    Matrix4 scale_m = Scale(scale, scale, scale);
+    mvMatrix *= scale_m;
     
     return mvMatrix;
 }

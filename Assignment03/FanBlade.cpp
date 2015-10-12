@@ -28,6 +28,10 @@ void FanBlade::initBlade() {
     bladeVerts[3] = Vector4(bladeOffset + bladeLength, bladeWidth / 2, 0, 1);
     bladeVerts[4] = Vector4(bladeOffset, -bladeWidth / 2, 0, 1);
     bladeVerts[5] = Vector4(bladeOffset + bladeLength, -bladeWidth / 2, 0, 1);
+    
+    for (int i = 0; i < 6; i++) {
+        bladeVerts[i] = RotateX(30) * bladeVerts[i];
+    }
 }
 
 int FanBlade::getNumberOfVertices() {
