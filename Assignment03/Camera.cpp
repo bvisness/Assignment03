@@ -51,7 +51,7 @@ Matrix4 Camera::getModelViewMatrix() {
 }
 
 Matrix4 Camera::getProjectionMatrix() {
-    return Perspective(fov, scene->aspect, near, far);
+    return Perspective(fov, scene->aspect, nearDistance, farDistance);
 }
 
 GLfloat Camera::getFOV() {
@@ -64,11 +64,11 @@ void Camera::setFOV(GLfloat newFOV) {
 }
 
 void Camera::setNearClippingDistance(GLfloat newNear) {
-    near = newNear;
+    nearDistance = newNear;
     updateSceneProjectionMatrixIfSafe();
 }
 
 void Camera::setFarClippingDistance(GLfloat newFar) {
-    far = newFar;
+    farDistance = newFar;
     updateSceneProjectionMatrixIfSafe();
 }

@@ -98,7 +98,7 @@ void display(void)
 #ifdef __APPLE__
 		printf("%s\n", gluErrorString(error));
 #else
-        printf("%s\n", glewErrorString(error));
+//        printf("%s\n", glewErrorString(error));
 #endif
 	}
 

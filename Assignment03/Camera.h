@@ -33,8 +33,8 @@ protected:
     GameObject* lookAtTarget = nullptr;
     
     GLfloat fov = 45;
-    GLfloat near = 1;
-    GLfloat far = 100;
+    GLfloat nearDistance = 1;
+    GLfloat farDistance = 100;
 public:
     Camera();
     GameObject* getTarget();
