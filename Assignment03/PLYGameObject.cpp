@@ -22,15 +22,15 @@ int PLYGameObject::loadPLY(const char* filename) {
         }
         std::vector<std::string> firstLineTokens = split(line, ' ');
         if (firstLineTokens[0] != "ply") {
-            return 2;
+            return 3;
         }
         
         if (!getline(infile, line)) {
-            return 2;
+            return 4;
         }
         std::vector<std::string> secondLineTokens = split(line, ' ');
         if (secondLineTokens[0] != "format" && secondLineTokens[1] != "ascii") {
-            return 2;
+            return 5;
         }
         
         // Process the header
@@ -51,7 +51,7 @@ int PLYGameObject::loadPLY(const char* filename) {
         }
         
         if (numVertsInFile == -1 || numFacesInFile == -1) {
-            return 2;
+            return 6;
         }
         
         // Read all the vertices into a vector
@@ -59,7 +59,7 @@ int PLYGameObject::loadPLY(const char* filename) {
         std::vector<Vector4> tempColors = std::vector<Vector4>();
         for (int i = 0; i < numVertsInFile; i++) {
             if (!getline(infile, line)) {
-                return 2;
+                return 7;
             }
             
             std::vector<std::string> tokens = split(line, ' ');
@@ -81,12 +81,12 @@ int PLYGameObject::loadPLY(const char* filename) {
         int k = 0;
         for (int i = 0; i < numFacesInFile; i++) {
             if (!getline(infile, line)) {
-                return 2;
+                return 8;
             }
             
             std::vector<std::string> tokens = split(line, ' ');
             if (tokens[0] != "3") {
-                return 2;
+                return 9;
             }
             
             for (int j = 1; j <= 3; j++) {

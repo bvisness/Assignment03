@@ -25,7 +25,7 @@ public:
     int loadPLY(const char* filename);
     PLYGameObject() : GameObject() {}
     PLYGameObject(const char* filename) : GameObject() {
-        loadPLY(filename);
+        printf("%d\n", loadPLY(filename));
     }
 };
 

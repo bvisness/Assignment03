@@ -10,7 +10,7 @@
 #include "Angel.h"
 #include "VisnessGL.h"
 #include "Boat.h"
-#include "FanBlade.h"
+#include "Fan.h"
 #include "Rudder.h"
 #include "Water.h"
 #include "Empty.h"
@@ -30,14 +30,6 @@ int ww = 1000, wh = 700;
 //our modelview and perspective matrices
 mat4 mv, p;
 
-const int numBlades = 4;
-const Vector4 bladeColors[4] = {
-    Vector4(1.0, 1.0, 0.5, 1.0),
-    Vector4(0.5, 1.0, 1.0, 1.0),
-    Vector4(1.0, 0.5, 0.5, 1.0),
-    Vector4(1.0, 0.5, 1.0, 1.0)
-};
-
 const int numRudders = 3;
 const GLfloat rudderSpacing = 0.7;
 const Vector4 rudderColors[3] = {
@@ -49,8 +41,7 @@ const Vector4 rudderColors[3] = {
 Scene* scene;
 
 Boat* boat;
-Empty* fanAnchor;
-FanBlade* blades[numBlades];
+Fan* fan;
 Rudder* rudders[numRudders];
 Cylinder* searchlight;
 Water* water;
@@ -202,19 +193,9 @@ void createObjects() {
     
     boat = new Boat();
     
-    fanAnchor = new Empty();
-    fanAnchor->position.y = 1.5;
-    fanAnchor->position.z = -1.75;
-    fanAnchor->scale = 0.75;
-//    boat->addChild(fanAnchor);
-    
-    for (int i = 0; i < numBlades; i++) {
-        blades[i] = new FanBlade(bladeColors[i]);
-
-        blades[i]->rotation.z = (360.0 / numBlades) * i;
-        
-        fanAnchor->addChild(blades[i]);
-    }
+    fan = new Fan();
+    fan->position = Vector3(0, 1.5, -1.85);
+    boat->addChild(fan);
     
     for (int i = 0; i < numRudders; i++) {
         rudders[i] = new Rudder(rudderColors[i]);
@@ -231,8 +212,6 @@ void createObjects() {
     searchlight->rotation.x = 90;
     searchlight->position = Vector3(0, 0.75, 2);
     boat->addChild(searchlight);
-    
-    boat->addChild(fanAnchor);
     
     water = new Water();
     water->scale = 10;
@@ -309,11 +288,11 @@ void timer(GLint v) {
     if (keyUpArrow) {
         boat->position.x += sin(boat->rotation.y * DEG_TO_RAD) * boatSpeed;
         boat->position.z += cos(boat->rotation.y * DEG_TO_RAD) * boatSpeed;
-        fanAnchor->rotation.z += fanSpeed;
+        fan->rotation.z += fanSpeed;
     } else if (keyDownArrow) {
         boat->position.x -= sin(boat->rotation.y * DEG_TO_RAD) * boatSpeed;
         boat->position.z -= cos(boat->rotation.y * DEG_TO_RAD) * boatSpeed;
-        fanAnchor->rotation.z -= fanSpeed;
+        fan->rotation.z -= fanSpeed;
     }
     
     boat->position.x = clamp(boat->position.x, -waterScale + 1, waterScale - 1);

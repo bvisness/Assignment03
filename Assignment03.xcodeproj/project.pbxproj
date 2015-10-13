@@ -13,7 +13,6 @@
 		7973B8C61BCC9450008706C2 /* PLYGameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7973B8C41BCC9450008706C2 /* PLYGameObject.cpp */; };
 		79EE62521BBDDFAE0064EC28 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62511BBDDFAE0064EC28 /* main.cpp */; };
 		79EE62711BBDDFD80064EC28 /* Empty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE625B1BBDDFD80064EC28 /* Empty.cpp */; };
-		79EE62721BBDDFD80064EC28 /* FanBlade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE625D1BBDDFD80064EC28 /* FanBlade.cpp */; };
 		79EE62731BBDDFD80064EC28 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62601BBDDFD80064EC28 /* GameObject.cpp */; };
 		79EE62741BBDDFD80064EC28 /* GLMiddleman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62621BBDDFD80064EC28 /* GLMiddleman.cpp */; };
 		79EE62751BBDDFD80064EC28 /* InitShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62641BBDDFD80064EC28 /* InitShader.cpp */; };
@@ -39,6 +38,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		792701921BCCD97C006A82A0 /* Fan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fan.h; sourceTree = "<group>"; };
+		792701931BCCDA09006A82A0 /* Fan.ply */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fan.ply; sourceTree = "<group>"; };
 		7973B8B71BCC4A19008706C2 /* Sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
 		7973B8B81BCC4A19008706C2 /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
 		7973B8BB1BCC54E7008706C2 /* Cylinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cylinder.cpp; sourceTree = "<group>"; };
@@ -56,8 +57,6 @@
 		79EE625A1BBDDFD80064EC28 /* Boat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boat.h; sourceTree = "<group>"; };
 		79EE625B1BBDDFD80064EC28 /* Empty.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Empty.cpp; sourceTree = "<group>"; };
 		79EE625C1BBDDFD80064EC28 /* Empty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Empty.h; sourceTree = "<group>"; };
-		79EE625D1BBDDFD80064EC28 /* FanBlade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FanBlade.cpp; sourceTree = "<group>"; };
-		79EE625E1BBDDFD80064EC28 /* FanBlade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanBlade.h; sourceTree = "<group>"; };
 		79EE625F1BBDDFD80064EC28 /* fshader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fshader.glsl; sourceTree = "<group>"; };
 		79EE62601BBDDFD80064EC28 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
 		79EE62611BBDDFD80064EC28 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
@@ -110,8 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				7973B8C71BCCC54F008706C2 /* Boat.ply */,
-				7973B8C31BCC9141008706C2 /* monkey2.ply */,
+				792701931BCCDA09006A82A0 /* Fan.ply */,
 				7973B8BE1BCC830F008706C2 /* monkey.stl */,
+				7973B8C31BCC9141008706C2 /* monkey2.ply */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -162,8 +162,7 @@
 				79EE625A1BBDDFD80064EC28 /* Boat.h */,
 				79EE625B1BBDDFD80064EC28 /* Empty.cpp */,
 				79EE625C1BBDDFD80064EC28 /* Empty.h */,
-				79EE625D1BBDDFD80064EC28 /* FanBlade.cpp */,
-				79EE625E1BBDDFD80064EC28 /* FanBlade.h */,
+				792701921BCCD97C006A82A0 /* Fan.h */,
 				7973B8C41BCC9450008706C2 /* PLYGameObject.cpp */,
 				7973B8C51BCC9450008706C2 /* PLYGameObject.h */,
 				7973B8BA1BCC4A1D008706C2 /* Primitives */,
@@ -269,7 +268,6 @@
 				79EE62521BBDDFAE0064EC28 /* main.cpp in Sources */,
 				79EE62871BBDE2D30064EC28 /* Camera.cpp in Sources */,
 				79EE62791BBDDFD80064EC28 /* Water.cpp in Sources */,
-				79EE62721BBDDFD80064EC28 /* FanBlade.cpp in Sources */,
 				7973B8C61BCC9450008706C2 /* PLYGameObject.cpp in Sources */,
 				79EE62841BBDE1290064EC28 /* Scene.cpp in Sources */,
 				79EE62781BBDDFD80064EC28 /* VisnessUtil.cpp in Sources */,
