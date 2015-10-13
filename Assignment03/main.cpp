@@ -194,14 +194,14 @@ void createObjects() {
     boat = new Boat();
     
     fan = new Fan();
-    fan->position = Vector3(0, 1.5, -1.85);
+    fan->position = Vector3(0, 1.35, -1.95);
     boat->addChild(fan);
     
     for (int i = 0; i < numRudders; i++) {
-        rudders[i] = new Rudder(rudderColors[i]);
+        rudders[i] = new Rudder();
         
         rudders[i]->position.x = -rudderSpacing + (rudderSpacing * i);
-        rudders[i]->position.z = -2;
+        rudders[i]->position.z = -2.2;
         
         boat->addChild(rudders[i]);
     }

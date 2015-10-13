@@ -9,21 +9,11 @@
 #ifndef __Assignment02__Rudder__
 #define __Assignment02__Rudder__
 
-#include "GameObject.h"
-#include "GLMiddleman.h"
+#include "PLYGameObject.h"
 
-class Rudder: public GameObject {
-private:
-    void initRudder();
-    Vector4 rudderColor;
-protected:
-    int getNumberOfVertices();
-    Vector4* getVertices();
-    Vector4* getVertexColors();
+class Rudder : public PLYGameObject {
 public:
-    Rudder(Vector4 color) : GameObject() {
-        rudderColor = color;
-    }
+	Rudder() : PLYGameObject("Rudder.ply") {}
 };
 
 #endif /* defined(__Assignment02__Rudder__) */

@@ -16,7 +16,6 @@
 		79EE62731BBDDFD80064EC28 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62601BBDDFD80064EC28 /* GameObject.cpp */; };
 		79EE62741BBDDFD80064EC28 /* GLMiddleman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62621BBDDFD80064EC28 /* GLMiddleman.cpp */; };
 		79EE62751BBDDFD80064EC28 /* InitShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62641BBDDFD80064EC28 /* InitShader.cpp */; };
-		79EE62771BBDDFD80064EC28 /* Rudder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62671BBDDFD80064EC28 /* Rudder.cpp */; };
 		79EE62781BBDDFD80064EC28 /* VisnessUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE626B1BBDDFD80064EC28 /* VisnessUtil.cpp */; };
 		79EE62791BBDDFD80064EC28 /* Water.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE626E1BBDDFD80064EC28 /* Water.cpp */; };
 		79EE627F1BBDE03F0064EC28 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79EE627E1BBDE03F0064EC28 /* OpenGL.framework */; };
@@ -261,7 +260,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79EE62771BBDDFD80064EC28 /* Rudder.cpp in Sources */,
 				7973B8C21BCC8369008706C2 /* STLGameObject.cpp in Sources */,
 				79EE62751BBDDFD80064EC28 /* InitShader.cpp in Sources */,
 				79EE62711BBDDFD80064EC28 /* Empty.cpp in Sources */,
