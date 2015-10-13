@@ -10,6 +10,7 @@
 		7973B8B91BCC4A19008706C2 /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7973B8B71BCC4A19008706C2 /* Sphere.cpp */; };
 		7973B8BD1BCC54E7008706C2 /* Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7973B8BB1BCC54E7008706C2 /* Cylinder.cpp */; };
 		7973B8C21BCC8369008706C2 /* STLGameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7973B8C01BCC8369008706C2 /* STLGameObject.cpp */; };
+		7973B8C61BCC9450008706C2 /* PLYGameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7973B8C41BCC9450008706C2 /* PLYGameObject.cpp */; };
 		79EE62521BBDDFAE0064EC28 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62511BBDDFAE0064EC28 /* main.cpp */; };
 		79EE62701BBDDFD80064EC28 /* Boat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE62591BBDDFD80064EC28 /* Boat.cpp */; };
 		79EE62711BBDDFD80064EC28 /* Empty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79EE625B1BBDDFD80064EC28 /* Empty.cpp */; };
@@ -47,6 +48,8 @@
 		7973B8C01BCC8369008706C2 /* STLGameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = STLGameObject.cpp; sourceTree = "<group>"; };
 		7973B8C11BCC8369008706C2 /* STLGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STLGameObject.h; sourceTree = "<group>"; };
 		7973B8C31BCC9141008706C2 /* monkey2.ply */ = {isa = PBXFileReference; lastKnownFileType = text; path = monkey2.ply; sourceTree = "<group>"; };
+		7973B8C41BCC9450008706C2 /* PLYGameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PLYGameObject.cpp; sourceTree = "<group>"; };
+		7973B8C51BCC9450008706C2 /* PLYGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLYGameObject.h; sourceTree = "<group>"; };
 		79EE624E1BBDDFAE0064EC28 /* Assignment03 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Assignment03; sourceTree = BUILT_PRODUCTS_DIR; };
 		79EE62511BBDDFAE0064EC28 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		79EE62581BBDDFD80064EC28 /* Angel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Angel.h; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 				79EE625C1BBDDFD80064EC28 /* Empty.h */,
 				79EE625D1BBDDFD80064EC28 /* FanBlade.cpp */,
 				79EE625E1BBDDFD80064EC28 /* FanBlade.h */,
+				7973B8C41BCC9450008706C2 /* PLYGameObject.cpp */,
+				7973B8C51BCC9450008706C2 /* PLYGameObject.h */,
 				7973B8BA1BCC4A1D008706C2 /* Primitives */,
 				79EE62671BBDDFD80064EC28 /* Rudder.cpp */,
 				79EE62681BBDDFD80064EC28 /* Rudder.h */,
@@ -266,6 +271,7 @@
 				79EE62871BBDE2D30064EC28 /* Camera.cpp in Sources */,
 				79EE62791BBDDFD80064EC28 /* Water.cpp in Sources */,
 				79EE62721BBDDFD80064EC28 /* FanBlade.cpp in Sources */,
+				7973B8C61BCC9450008706C2 /* PLYGameObject.cpp in Sources */,
 				79EE62841BBDE1290064EC28 /* Scene.cpp in Sources */,
 				79EE62781BBDDFD80064EC28 /* VisnessUtil.cpp in Sources */,
 				79EE62701BBDDFD80064EC28 /* Boat.cpp in Sources */,

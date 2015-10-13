@@ -58,6 +58,20 @@ std::vector<std::string> &split(const std::string &s, char delim, std::vector<st
 }
 
 std::vector<std::string> split(const std::string &s, char delim) {
+    bool containsDelimeter = false;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == delim) {
+            containsDelimeter = true;
+            break;
+        }
+    }
+    
+    if (!containsDelimeter) {
+        std::vector<std::string> result;
+        result.push_back(s);
+        return result;
+    }
+    
     std::vector<std::string> elems;
     split(s, delim, elems);
     return elems;
