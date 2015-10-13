@@ -252,17 +252,29 @@ void createObjects() {
         }
     }
     
+    // The free-roaming camera has no particular trick
+    // to it. The default parameters can be found in the
+    // resetFreeCamera() method.
     freeCam = new Camera();
     resetFreeCamera();
     
+    // The chase camera is a child of the boat, so it
+    // inherits the boat's transformation before applying
+    // its own.
     chaseCam = new Camera();
     chaseCam->position = Vector3(0, 5, -5);
     chaseCam->rotation = Vector3(30, 0, 0);
     
+    // The top camera is pretty much the same as the
+    // chase camera, but from a different angle.
     topCam = new Camera();
     topCam->position = Vector3(0, 15, 0);
     topCam->rotation.x = 90;
     
+    // The light camera is a child of the searchlight,
+    // so it will be automatically rotated to stay
+    // behind the searchlight when the searchlight
+    // rotates. Easy!
     lightCam = new Camera();
     lightCam->position = Vector3(0, -1, -0.5);
     lightCam->rotation.x = -90;

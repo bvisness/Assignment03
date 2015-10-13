@@ -12,6 +12,10 @@
 #include "VisnessGL.h"
 #include "VisnessUtil.h"
 
+/**
+ * A class that handles shipping data over to
+ * the graphics card using OpenGL methods.
+ */
 class GLMiddleman {
 public:
     GLMiddleman();

@@ -12,8 +12,12 @@
 #include <vector>
 
 #include "GameObject.h"
+#include "GLMiddleman.h"
 #include "Camera.h"
 
+/**
+ * The entire scene to be displayed.
+ */
 class Scene {
 protected:
     std::vector<GameObject*> gameObjects = std::vector<GameObject*>();
@@ -35,6 +39,10 @@ public:
     void setAspectRatio(GLfloat aspect);
     void setAspectRatio(GLfloat width, GLfloat height);
     
+    /**
+     * Take the projection matrix from the active
+     * camera and ship it over to the graphics card.
+     */
     void updateProjectionMatrix();
 };
 
