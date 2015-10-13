@@ -18,6 +18,9 @@
 
 class Scene;
 
+/**
+ * An object to be displayed onscreen.
+ */
 class GameObject {
 friend class Scene;
 protected:
@@ -46,10 +49,36 @@ public:
     std::vector<GameObject*> getChildren();
     void addChild(GameObject* obj);
     
+    /**
+     * Gets the position of this object relative to the world
+     * rather than to its parent.
+     */
     Vector3 getWorldPosition();
+    
+    /**
+     * Gets the rotation of this object relative to the world
+     * rather than to its parent.
+     */
     Vector3 getWorldRotation();
+    
+    /**
+     * Gets the scale of this object relative to the world
+     * rather than to its parent.
+     */
     GLfloat getWorldScale();
+    
+    /**
+     * Gets the model view matrix for this object, either relative
+     * to a camera or to the world.
+     *
+     * @param forCamera Whether to get a model view matrix relative
+     *          to the scene's active camera.
+     */
     mat4 getModelViewMatrix(bool forCamera = true);
+    
+    /**
+     * Draw the GameObject and all its children onscreen.
+     */
     void draw();
 };
 

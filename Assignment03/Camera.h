@@ -14,19 +14,45 @@
 
 class Camera: public Empty {
 private:
+    /**
+     * If this camera is assigned to a scene, tell
+     * that scene to update the projection matrix.
+     */
     void updateSceneProjectionMatrixIfSafe();
 protected:
+    /**
+     * An Empty positioned in front of the camera
+     * so it has something to look at when no other
+     * target is assigned.
+     */
     GameObject* defaultTarget;
+    
+    /**
+     * The GameObject for the camera to look at.
+     */
     GameObject* lookAtTarget = nullptr;
+    
     GLfloat fov = 45;
-    GLfloat near = 1;
-    GLfloat far = 100;
+    GLfloat nearDistance = 1;
+    GLfloat farDistance = 100;
 public:
     Camera();
     GameObject* getTarget();
     void setTarget(GameObject* target);
     void removeTarget();
+    
+    /**
+     * Gets the model view matrix from this camera to
+     * serve as a starting point for other GameObjects.
+     * Note that this is different from
+     * GameObject::getModelViewMatrix().
+     */
     Matrix4 getModelViewMatrix();
+    
+    /**
+     * Gets a projection matrix based on the parameters
+     * of this camera.
+     */
     Matrix4 getProjectionMatrix();
     
     GLfloat getFOV();

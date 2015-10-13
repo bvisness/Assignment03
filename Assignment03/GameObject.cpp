@@ -19,6 +19,10 @@ void GameObject::setScene(Scene* newScene) {
     }
 }
 
+/**
+ * Initializes the GameObject by creating vao's and vbo's
+ * and sending the vertex data over to the graphics card.
+ */
 void GameObject::initGameObject() {
     if (scene == nullptr) {
         abortWithMessage("In GameObject::initGameObject(): Scene for GameObject was never set");
