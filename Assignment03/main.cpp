@@ -18,6 +18,7 @@
 #include "Camera.h"
 #include "Sphere.h"
 #include "Cylinder.h"
+#include "PLYGameObject.h"
 #include <math.h>
 #pragma comment(lib, "glew32.lib")
 
@@ -202,8 +203,9 @@ void createObjects() {
     boat = new Boat();
     
     fanAnchor = new Empty();
-    fanAnchor->position.y = 1;
-    fanAnchor->position.z = -1.25;
+    fanAnchor->position.y = 1.5;
+    fanAnchor->position.z = -1.75;
+    fanAnchor->scale = 0.75;
 //    boat->addChild(fanAnchor);
     
     for (int i = 0; i < numBlades; i++) {
@@ -218,7 +220,7 @@ void createObjects() {
         rudders[i] = new Rudder(rudderColors[i]);
         
         rudders[i]->position.x = -rudderSpacing + (rudderSpacing * i);
-        rudders[i]->position.z = -1.5;
+        rudders[i]->position.z = -2;
         
         boat->addChild(rudders[i]);
     }
@@ -227,7 +229,7 @@ void createObjects() {
     searchlight->setCapTopColor(Vector4(1, 1, 1, 1));
     searchlight->setCapBottomColor(Vector4(0.6, 0.6, 0.6, 1));
     searchlight->rotation.x = 90;
-    searchlight->position = Vector3(0, 1.25, 2);
+    searchlight->position = Vector3(0, 0.75, 2);
     boat->addChild(searchlight);
     
     boat->addChild(fanAnchor);

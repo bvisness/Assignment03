@@ -9,14 +9,11 @@
 #ifndef __Assignment02__Boat__
 #define __Assignment02__Boat__
 
-#include "GameObject.h"
-#include "GLMiddleman.h"
+#include "PLYGameObject.h"
 
-class Boat: public GameObject {
-protected:
-    int getNumberOfVertices();
-    Vector4* getVertices();
-    Vector4* getVertexColors();
+class Boat: public PLYGameObject {
+public:
+    Boat() : PLYGameObject("Boat.ply") {}
 };
 
 #endif /* defined(__Assignment02__Boat__) */
