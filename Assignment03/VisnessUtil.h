@@ -10,7 +10,12 @@
 #define __VISNESSUTIL_H__
 
 #include "VisnessGL.h"
+
+#ifdef __APPLE__
 #include "Angel.h"
+#else
+#include <GL/Angel.h>
+#endif
 
 #ifndef DEG_TO_RAD
 #define DEG_TO_RAD 0.0174532925
