@@ -9,6 +9,9 @@
 #ifndef __VISNESSUTIL_H__
 #define __VISNESSUTIL_H__
 
+#include <string>
+#include <vector>
+
 #include "VisnessGL.h"
 #include "Angel.h"
 
@@ -41,5 +44,7 @@ GLfloat clamp(GLfloat n, GLfloat min, GLfloat max);
 
 void warnWithMessage(const char* msg);
 void abortWithMessage(const char* msg);
+
+std::vector<std::string> split(const std::string &s, char delim);
 
 #endif
