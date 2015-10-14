@@ -38,6 +38,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7901ACA51BCED243004539EC /* CheckError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckError.h; sourceTree = "<group>"; };
 		7973B8B71BCC4A19008706C2 /* Sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
 		7973B8B81BCC4A19008706C2 /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
 		7973B8BB1BCC54E7008706C2 /* Cylinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cylinder.cpp; sourceTree = "<group>"; };
@@ -169,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				79EE62581BBDDFD80064EC28 /* Angel.h */,
+				7901ACA51BCED243004539EC /* CheckError.h */,
 				79EE62661BBDDFD80064EC28 /* mat.h */,
 				79EE62691BBDDFD80064EC28 /* vec.h */,
 			);

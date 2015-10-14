@@ -7,7 +7,6 @@
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#include "Angel.h"
 #include "VisnessGL.h"
 #include "Boat.h"
 #include "FanBlade.h"

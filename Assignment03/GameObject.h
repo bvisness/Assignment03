@@ -13,7 +13,6 @@
 
 #include "VisnessUtil.h"
 #include "VisnessGL.h"
-#include "Angel.h"
 #include "GLMiddleman.h"
 
 class Scene;
