@@ -37,6 +37,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7901ACA61BCEEAE2004539EC /* Searchlight.ply */ = {isa = PBXFileReference; lastKnownFileType = text; path = Searchlight.ply; sourceTree = "<group>"; };
+		7901ACA71BCEEC90004539EC /* Searchlight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Searchlight.h; sourceTree = "<group>"; };
 		792701921BCCD97C006A82A0 /* Fan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fan.h; sourceTree = "<group>"; };
 		792701931BCCDA09006A82A0 /* Fan.ply */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fan.ply; sourceTree = "<group>"; };
 		7973B8B71BCC4A19008706C2 /* Sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
@@ -63,7 +65,6 @@
 		79EE62631BBDDFD80064EC28 /* GLMiddleman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMiddleman.h; sourceTree = "<group>"; };
 		79EE62641BBDDFD80064EC28 /* InitShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InitShader.cpp; sourceTree = "<group>"; };
 		79EE62661BBDDFD80064EC28 /* mat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mat.h; sourceTree = "<group>"; };
-		79EE62671BBDDFD80064EC28 /* Rudder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rudder.cpp; sourceTree = "<group>"; };
 		79EE62681BBDDFD80064EC28 /* Rudder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rudder.h; sourceTree = "<group>"; };
 		79EE62691BBDDFD80064EC28 /* vec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vec.h; sourceTree = "<group>"; };
 		79EE626A1BBDDFD80064EC28 /* VisnessGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisnessGL.h; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 				792701931BCCDA09006A82A0 /* Fan.ply */,
 				7973B8BE1BCC830F008706C2 /* monkey.stl */,
 				7973B8C31BCC9141008706C2 /* monkey2.ply */,
+				7901ACA61BCEEAE2004539EC /* Searchlight.ply */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -159,13 +161,13 @@
 			isa = PBXGroup;
 			children = (
 				79EE625A1BBDDFD80064EC28 /* Boat.h */,
+				7901ACA71BCEEC90004539EC /* Searchlight.h */,
 				79EE625B1BBDDFD80064EC28 /* Empty.cpp */,
 				79EE625C1BBDDFD80064EC28 /* Empty.h */,
 				792701921BCCD97C006A82A0 /* Fan.h */,
 				7973B8C41BCC9450008706C2 /* PLYGameObject.cpp */,
 				7973B8C51BCC9450008706C2 /* PLYGameObject.h */,
 				7973B8BA1BCC4A1D008706C2 /* Primitives */,
-				79EE62671BBDDFD80064EC28 /* Rudder.cpp */,
 				79EE62681BBDDFD80064EC28 /* Rudder.h */,
 				7973B8C01BCC8369008706C2 /* STLGameObject.cpp */,
 				7973B8C11BCC8369008706C2 /* STLGameObject.h */,

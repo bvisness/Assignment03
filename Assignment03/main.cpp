@@ -12,6 +12,7 @@
 #include "Boat.h"
 #include "Fan.h"
 #include "Rudder.h"
+#include "Searchlight.h"
 #include "Water.h"
 #include "Empty.h"
 #include "Scene.h"
@@ -43,7 +44,7 @@ Scene* scene;
 Boat* boat;
 Fan* fan;
 Rudder* rudders[numRudders];
-Cylinder* searchlight;
+Searchlight* searchlight;
 Water* water;
 
 Camera* freeCam;
@@ -205,12 +206,9 @@ void createObjects() {
         
         boat->addChild(rudders[i]);
     }
-    
-    searchlight = new Cylinder(0.25, 0.5, 16, Vector4(0.8, 0.8, 0.8, 1));
-    searchlight->setCapTopColor(Vector4(1, 1, 1, 1));
-    searchlight->setCapBottomColor(Vector4(0.6, 0.6, 0.6, 1));
-    searchlight->rotation.x = 90;
-    searchlight->position = Vector3(0, 0.75, 2);
+        
+    searchlight = new Searchlight();
+    searchlight->position = Vector3(0, 0.5, 1.75);
     boat->addChild(searchlight);
     
     water = new Water();
@@ -257,8 +255,7 @@ void createObjects() {
     // behind the searchlight when the searchlight
     // rotates. Easy!
     lightCam = new Camera();
-    lightCam->position = Vector3(0, -1, -0.5);
-    lightCam->rotation.x = -90;
+    lightCam->position = Vector3(0, 0.85, -1.1);
     lightCam->setNearClippingDistance(0.1);
     searchlight->addChild(lightCam);
     
